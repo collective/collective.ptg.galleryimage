@@ -37,7 +37,9 @@ class GalleryImageExtender(object):
             required=False,
             widget=ReferenceBrowserWidget(
                 label=u'Links to',
-                description=u"Clicking image goes to this URL"
+                description=u"Clicking image goes to this URL. "
+                            u"The 'Enable bodytext' must be enabled for your "
+                            u"Gallery in order for this to work properly"
             )
         ),
         ExtendedTextField('text',
@@ -50,7 +52,9 @@ class GalleryImageExtender(object):
                 description='Use in some galleries to provide WYSIWYG editor '
                             'for description of images. If not provided, it will '
                             'default to a combination of title and description field '
-                            'values.',
+                            'values. '
+                            u"The 'Enable bodytext' must be enabled for your "
+                            u"Gallery in order for this to work properly",
                 label=u'Text',
                 rows=25
             )
