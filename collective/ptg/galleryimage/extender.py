@@ -46,7 +46,7 @@ class GalleryImageExtender(object):
             primary=False,
             storage=atapi.AnnotationStorage(migrate=True),
             validators=('isTidyHtmlWithCleanup',),
-            widget=atapi.TextAreaWidget(
+            widget=atapi.RichWidget(
                 description='Use in some galleries to provide WYSIWYG editor '
                             'for description of images. If not provided, it will '
                             'default to a combination of title and description field '
@@ -54,7 +54,7 @@ class GalleryImageExtender(object):
                 label=u'Text',
                 rows=25
             )
-        ),)
+        )
     ]
 
     def __init__(self, context):
