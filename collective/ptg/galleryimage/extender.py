@@ -11,6 +11,7 @@ except ImportError:
     from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from archetypes.schemaextender.interfaces import ISchemaExtender
 from zope.interface import implements
+from Products.validation import V_REQUIRED
 
 
 class ReferenceField(ExtensionField, atapi.ReferenceField):
@@ -22,6 +23,10 @@ class StringField(ExtensionField, atapi.StringField):
 
 
 class ExtendedTextField(ExtensionField, atapi.TextField):
+    pass
+
+
+class ExtendedImageField(ExtensionField, atapi.ImageField):
     pass
 
 
@@ -58,7 +63,21 @@ class GalleryImageExtender(object):
                 label=u'Text',
                 rows=25
             )
-        )
+        ),
+        ExtendedImageField("thumbnailImage",
+            required=False,
+            storage=atapi.AnnotationStorage(migrate=True),
+            languageIndependent=True,
+            sizes={'large': (768, 768), 'preview': (400, 400),
+                   'mini': (200, 200), 'thumb': (128, 128),
+                   'tile': (64, 64), 'icon': (32, 32), 'listing': (16, 16)},
+            validators=(('isNonEmptyFile', V_REQUIRED),),
+            widget=atapi.ImageWidget(
+                description=u"Use this instead of the normal thumbnail",
+                label=u"Custom Thumbnail image",
+                show_content_type=False
+            )
+        ),
     ]
 
     def __init__(self, context):
