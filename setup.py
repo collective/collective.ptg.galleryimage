@@ -26,7 +26,7 @@ setup(name='collective.ptg.galleryimage',
       install_requires=[
           'setuptools',
           'archetypes.schemaextender',
-          'collective.plonetruegallery>=3.3.0'
+          'collective.plonetruegallery>=3.3.0a1'
       ],
       entry_points="""
       # -*- Entry points: -*-
