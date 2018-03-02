@@ -12,6 +12,13 @@
         description='Extension profile for the "collective.ptg.galleryimage" Plone product.'
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="Gallery Image Type (uninstall)"
+        directory="profiles/uninstall"
+        description='Uninstall extension profile for the "collective.ptg.galleryimage" Plone product.'
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
     <include package="archetypes.schemaextender" />
     <adapter factory=".extender.GalleryImageExtender" />
